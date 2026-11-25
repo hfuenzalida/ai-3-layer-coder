@@ -1,0 +1,2 @@
+import requests; 
+r = requests.post('http://localhost:11434/v1/chat/completions', json={'model': 'qwen2.5-coder:3b', 'messages': [{'role': 'user', 'content': 'Write a hello world function in Python.'}]}); print(r.status_code, r.json()['choices'][0]['message']['content'][:200])

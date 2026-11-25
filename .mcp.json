@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "codex-logger": {
+      "command": "C:\\Users\\horat\\Downloads\\3 Layer Coder Ecosystem\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\horat\\Downloads\\3 Layer Coder Ecosystem\\codex_logger.py"]
+    }
+  }
+}

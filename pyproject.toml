@@ -1,0 +1,74 @@
+[project]
+name            = "codex-futura"
+version         = "1.0.0"
+description     = "3-layer AI coding assistant: Local → Cloud Heavy → Orchestrator"
+requires-python = ">=3.11"
+readme          = "README.md"
+
+dependencies = [
+    "requests>=2.33",
+    "python-dotenv>=1.2",
+    "rich>=14.0",
+    "mcp>=1.27",
+    "httpx>=0.28",
+    "httpx-sse>=0.4",
+    "anyio>=4.13",
+    "uvicorn>=0.44",
+    "sse-starlette>=3.3",
+    "streamlit>=1.56",
+    "plotly>=6.7",
+    "pandas>=3.0",
+    "numpy>=2.4",
+    "pyarrow>=23.0",
+    "pydeck>=0.9",
+    "watchdog>=6.0",
+    "tenacity>=9.1",
+    "pillow>=12.2",
+    "colorama>=0.4",
+    "certifi>=2026.2",
+]
+
+[project.optional-dependencies]
+notifications = ["plyer>=2.1"]
+windows       = ["pywin32>=311"]
+dev           = ["pytest>=8.3", "pytest-cov>=6.0", "pytest-timeout>=2.3"]
+
+
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+addopts      = [
+    "-q",
+    "--tb=short",
+    "--strict-markers",
+    # "--timeout=30",   # requires pytest-timeout; enabled automatically in CI
+    #                   # Install locally: pip install pytest-timeout
+]
+markers = [
+    "slow: marks tests that call real network endpoints (deselect with -m 'not slow')",
+    "integration: marks full end-to-end tests requiring Ollama running",
+]
+
+# Minimum coverage gate — CI fails if overall line coverage drops below this.
+# Run with: pytest --cov=. --cov-fail-under=80 --cov-report=term-missing
+# (threshold intentionally conservative; raise it as coverage improves)
+
+
+[tool.coverage.run]
+source   = ["."]
+omit     = [
+    ".venv/*",
+    "tests/*",
+    "test_*.py",
+    "setup_*.py",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "\\.\\.\\.",
+]
+show_missing  = true
+skip_covered  = false

@@ -1,0 +1,2 @@
+import requests, os; 
+from dotenv import load_dotenv; load_dotenv(); r = requests.post('https://openrouter.ai/api/v1/chat/completions', headers={'Authorization': 'Bearer ' + os.getenv('OPENROUTER_API_KEY')}, json={'model': 'qwen/qwen-2.5-coder-32b-instruct', 'messages': [{'role': 'user', 'content': 'Say hello in one sentence.'}]}); print(r.status_code, r.text[:300])

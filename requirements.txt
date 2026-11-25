@@ -1,0 +1,39 @@
+# Codex Futura — pinned direct dependencies
+# Generated: 2026-04-25  Python 3.14
+# Refresh:   pip install -r requirements.txt
+# Re-pin:    pip freeze > requirements.txt  (after venv rebuild)
+
+# ── Core runtime ───────────────────────────────────────────────────────────────
+requests==2.33.1
+python-dotenv==1.2.2
+rich==14.0.0
+
+# ── AI / MCP ───────────────────────────────────────────────────────────────────
+mcp==1.27.0
+httpx==0.28.1
+httpx-sse==0.4.3
+anyio==4.13.0
+uvicorn==0.44.0
+sse-starlette==3.3.4
+
+# ── Analytics & Dashboard ──────────────────────────────────────────────────────
+streamlit==1.56.0
+plotly==6.7.0
+pandas==3.0.2
+numpy==2.4.4
+pyarrow==23.0.1
+pydeck==0.9.1
+
+# ── System / Notifications ─────────────────────────────────────────────────────
+plyer==2.1.0           # Optional: desktop notifications for budget_guardian.py
+                       # If missing, guardian degrades to console-only warnings.
+watchdog==6.0.0
+pywin32==311           # Windows-only: Task Scheduler integration
+
+# ── Dev & Testing ──────────────────────────────────────────────────────────────
+pytest==8.3.5
+gitpython==3.1.46
+tenacity==9.1.4
+pillow==12.2.0
+colorama==0.4.6
+certifi==2026.2.25
