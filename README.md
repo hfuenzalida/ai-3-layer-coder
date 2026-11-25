@@ -1,4 +1,45 @@
-# Codex Futura — 3-Layer AI Coding Assistant
+# AI 3-Layer Coder
+
+**Cost-aware AI coding assistant** that routes each task to the cheapest capable model tier: local Ollama, mid-cost cloud, or premium orchestrator. Built for solo builders and small teams who want Claude-class outcomes without always paying Claude-class prices.
+
+**Stack:** Python 3.11+, Ollama, OpenRouter, SQLite cache, Streamlit dashboard  
+**License:** [MIT](LICENSE)  
+**Topics:** `ollama` · `openrouter` · `ai-agents` · `developer-tools` · `cost-optimization`
+
+---
+
+## Overview
+
+This repository implements a **three-tier routing policy** with production-minded guardrails: circuit breaker on local failures, response cache with tier-specific TTL, CSV usage analytics, soft/hard budget locks, and optional multi-step `plan` workflows. Partners evaluating the author’s agent/tooling work should read the workflow diagrams first, then run the REPL with `--dry-run` to see routing without spending tokens.
+
+## System workflows
+
+### Task routing and execution
+
+<p align="center">
+  <img src="docs/workflows/tier-routing.svg" alt="Three-tier routing from user input through CodexRouter, Orchestrator, cache, and budget guardian" width="820"/>
+</p>
+
+### `plan` multi-step workflows
+
+<p align="center">
+  <img src="docs/workflows/plan-workflow.svg" alt="Architect pass, step execution loop, and aggregated workflow result" width="820"/>
+</p>
+
+## Capabilities at a glance
+
+| Area | What you get |
+|------|----------------|
+| Routing | Keyword scoring + complexity heuristics pick tier 1/2/3 |
+| Reliability | Circuit breaker, stream truncation handling, cache |
+| Cost control | Budget guardian locks, per-workflow USD ceiling |
+| Operator UX | REPL commands, live monitor, Streamlit dashboard |
+| Quality | Detective scan (security/quality/ops), pytest suite |
+| Platform | Windows-first autostart & Task Scheduler helpers |
+
+---
+
+## Three tiers
 
 A personal workstation AI coding tool that routes tasks intelligently across three tiers:
 
@@ -212,3 +253,15 @@ The detective runs four inspectors: SecurityAuditor, CodeQualityInspector, BugHu
 
 Current: **1.0.0**  
 See `__version__.py` to bump before tagging a release.
+
+---
+
+## Related portfolio repositories
+
+| Repository | Focus |
+|------------|--------|
+| [fhir-interop-hub](https://github.com/hfuenzalida/fhir-interop-hub) | Healthcare · FHIR R4 · SMART |
+| [rag-retail-analyst](https://github.com/hfuenzalida/rag-retail-analyst) | Sovereign RAG · retail analytics |
+| [security-suite-orchestrator](https://github.com/hfuenzalida/security-suite-orchestrator) | DevSecOps · SARIF |
+| [digital-brain](https://github.com/hfuenzalida/digital-brain) | Founder business OS |
+| [ig-video-to-text](https://github.com/hfuenzalida/ig-video-to-text) | Local video → structured text |
