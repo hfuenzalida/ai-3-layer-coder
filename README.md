@@ -1,6 +1,10 @@
 # AI 3-Layer Coder
 
-**Cost-aware AI coding assistant** that routes each task to the cheapest capable model tier: local Ollama, mid-cost cloud, or premium orchestrator. Built for solo builders and small teams who want Claude-class outcomes without always paying Claude-class prices.
+## Business case
+
+Independent builders and small engineering teams increasingly depend on coding agents, yet **every prompt sent to a frontier model is a recurring operating cost**—and routing everything to the cloud also weakens privacy for proprietary code. Most setups are binary: “local only” (limited quality) or “always premium” (unpredictable spend).
+
+This product exists to **run a disciplined three-tier model**: cheap local inference for routine work, a mid-cost cloud tier when capability is needed, and premium orchestration only when the task demands it. Budget locks, usage accounting, and caching make cost **a first-class operational constraint**, not a monthly surprise. **Intent:** offer a reference implementation partners can inspect for **cost-aware agent infrastructure** on a single workstation—not a hosted IDE, but the routing and guardrails layer underneath one.
 
 **Stack:** Python 3.11+, Ollama, OpenRouter, SQLite cache, Streamlit dashboard  
 **License:** [MIT](LICENSE)  
